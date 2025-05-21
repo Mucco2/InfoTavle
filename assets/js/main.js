@@ -17,10 +17,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const sections = document.querySelectorAll(".info-section");
 
     const sectionMap = {
-        "Vejret": "weather-section",
-        "Trafik": "traffic-section",
-        "Kalender": "calendar-section"
-    };
+    "Vejret": "weather-section",
+    "Trafik": "traffic-section",
+    "Kalender": "calendar-section",
+    "DSB Rejseplanen": "dsb-section"
+};
 
     let activeSectionId = "weather-section";
 
@@ -38,27 +39,6 @@ document.addEventListener("DOMContentLoaded", function () {
             if (sectionId) {
                 document.getElementById(sectionId).style.display = "block";
                 activeSectionId = sectionId;
-
-                // Init kalender hvis nødvendigt
-                if (sectionId === "calendar-section" && !calendarInitialized) {
-                    const calendarEl = document.getElementById('calendar');
-                    calendar = new FullCalendar.Calendar(calendarEl, {
-                        initialView: 'dayGridMonth',
-                        locale: 'da',
-                        headerToolbar: {
-                            left: 'prev,next today',
-                            center: 'title',
-                            right: 'dayGridMonth,listWeek'
-                        },
-                        events: [
-                            { title: 'Eksamensdag', start: '2025-05-27' },
-                            { title: 'Fredagsbar', start: '2025-05-30' },
-                            { title: 'Sommerferie', start: '2025-06-25' }
-                        ]
-                    });
-                    calendar.render();
-                    calendarInitialized = true;
-                }
             }
         });
     });
