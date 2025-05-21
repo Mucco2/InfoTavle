@@ -467,6 +467,11 @@ body {
     font-weight: bold;
 }
 
+#calendar {
+  min-height: 500px;
+}
+
+
 
 
 
