@@ -100,62 +100,95 @@
 </div>
 
 
-    <!-- VEJR -->
+   <!-- VEJR -->
 <div id="weather-section" class="info-section" style="display: none;">
-        <div class="info-header">
-            <h2>Vejr</h2>
-        </div>
-        <div class="info-content">
-            <div class="info-card weather-card">
-                <div class="weather-header">
-                    <div class="weather-location">København</div>
-                    <div class="weather-date">20. maj 2025</div>
-                </div>
-                <div class="weather-body">
-                    <div class="weather-icon"><ion-icon name="cloud-outline"></ion-icon></div>
-                    <div class="weather-temp">15°C</div>
-                    <div class="weather-condition">Overskyet</div>
-                </div>
-                <div class="weather-footer">
-                    <div class="weather-detail"><strong>Fugtighed:</strong> 72%</div>
-                    <div class="weather-detail"><strong>Vind:</strong> 5 m/s</div>
-                </div>
-            </div>
-        </div>
+  <div class="infovejer-header">
+    <h2>Vejr</h2>
+  </div>
+  <div class="info-content">
+    <div class="info-card weather-card">
+      <div class="weather-header">
+        <div class="weather-location">København</div>
+        <div class="weather-date" id="today-date">Dato</div>
+      </div>
+      <div class="weather-body">
+        <div class="weather-icon"><ion-icon name="cloud-outline"></ion-icon></div>
+        <div class="weather-temp" id="today-temp">--°C</div>
+        <div class="weather-condition" id="today-desc">--</div>
+      </div>
+      <div class="weather-footer">
+        <div class="weather-detail" id="weather-humidity"><strong>Fugtighed:</strong> --%</div>
+        <div class="weather-detail" id="weather-wind"><strong>Vind:</strong> -- m/s</div>
+      </div>
     </div>
 
-    <!-- TRAFIK -->
-    <div id="traffic-section" class="info-section" style="display: none;">
-        <div class="info-header">
-            <h2>Trafik</h2>
-        </div>
-        <div class="info-content">
-            <div class="info-card traffic-card">
-                <div class="traffic-header">
-                    <div class="traffic-location">København</div>
-                    <div class="traffic-date">20. maj 2025</div>
-                </div>
-                <div class="traffic-body">
-                    <div class="traffic-icon"><ion-icon name="car-outline"></ion-icon></div>
-                    <div class="traffic-status">Tæt trafik</div>
-                    <div class="traffic-condition">Forventet forsinkelse: 15 min</div>
-                </div>
-                <div class="traffic-footer">
-                    <div class="traffic-detail"><strong>Ulykker:</strong> Ingen rapporteret</div>
-                    <div class="traffic-detail"><strong>Vejforhold:</strong> Våde veje</div>
-                </div>
-            </div>
-        </div>
+    <div class="week-forecast">
+      <h3>Ugeoversigt</h3>
+      <div class="forecast-cards" id="forecast-cards">
+        <!-- Dynamisk ugeprognose kommer her -->
+      </div>
     </div>
+  </div>
+</div>
+
+   <!-- TRAFIK -->
+<div id="traffic-section" class="info-section" style="display: none;">
+  <div class="info-header">
+    <h2>Live Trafikkort</h2>
+  </div>
+  <div class="info-content" style="justify-content: center;">
+    <iframe
+      src="https://trafikkort.vejdirektoratet.dk/index.html"
+      width="1610"
+      height="750"
+      style="border: none; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+    </iframe>
+  </div>
+</div>
+
+
+
+
+    <!-- KALENDER -->
+<div id="kalender-section" class="info-section" style="display: none;">
+  <div class="info-header">
+    <h2>TEC Kalender</h2>
+  </div>
+  <div class="info-content" style="justify-content: center;">
+    <iframe
+      src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=Europe%2FCopenhagen&showPrint=0&src=dGVjZWxldjI1QGdtYWlsLmNvbQ&src=ZGEuZGFuaXNoI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%23039BE5&color=%230B8043"
+      style="border:solid 1px #777"
+      width="1610"
+      height="800"
+      frameborder="0"
+      scrolling="no">
+    </iframe>
+  </div>
+</div>
+
+<!-- DSB REJSEPLANEN -->
+<div id="rejseplanen-section" class="info-section" style="display: none;">
+  <div class="info-header">
+    <h2>DSB Rejseplanen</h2>
+  </div>
+  <div class="info-content" style="justify-content: center;">
+    <iframe
+      src="https://rejseplanen.dk?language=da_DA#!S|København H!Z|TEC Hvidovre!start|1"
+      width="1610"
+      height="800"
+      style="border: none; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+    </iframe>
+  </div>
+</div>
+
 
 </section>
-
-
         </div>
     </div>
-
     <!-- =========== Scripts =========  -->
+     <script src="assets/js/script.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/scripts.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
