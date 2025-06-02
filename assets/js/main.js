@@ -18,7 +18,8 @@ document.addEventListener("DOMContentLoaded", function () {
     "Vejret": "weather-section",
     "Trafik": "traffic-section",
     "DSB Rejseplanen": "rejseplanen-section",
-    "Kalender": "kalender-section"
+    "Kalender": "kalender-section",
+    "Feedback": "feedback-section"
 };
 
 
@@ -92,5 +93,7 @@ let activeSectionId = "infotavle-section"; // Set this as the new default
         }
     });
 });
+
+
 
 

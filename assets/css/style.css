@@ -609,3 +609,94 @@ body {
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
+
+
+
+/* Form styling */
+#feedback-form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+}
+
+#feedback-form label {
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+#feedback-form input,
+#feedback-form select,
+#feedback-form textarea {
+    width: 90%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    box-sizing: border-box;
+    margin-left: 5px;
+}
+
+#feedback-form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+#feedback-form button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+    width: 90%;
+    margin-left: 5px;
+}
+
+#feedback-form button:hover {
+    background-color: #45a049;
+}
+
+/* Kommentar styling */
+#feedback-list {
+    flex: 1;
+    max-width: 400px;
+    padding: 20px;
+}
+
+.feedback-item {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.feedback-item p {
+    margin: 5px 0;
+}
+
+/* Responsiv styling */
+@media (max-width: 800px) {
+    .info-content {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    #feedback-list {
+        max-width: 100%;
+    }
+
+    #feedback-form button {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .feedback-item {
+        padding: 10px;
+    }
+}
+
