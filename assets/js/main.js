@@ -94,6 +94,12 @@ let activeSectionId = "infotavle-section"; // Set this as the new default
     });
 });
 
-
+function updateTopbarClock() {
+    const now = new Date();
+    document.getElementById('clock-topbar').textContent =
+        now.toLocaleTimeString('da-DK', { hour: '2-digit', minute: '2-digit' });
+}
+setInterval(updateTopbarClock, 1000);
+updateTopbarClock();
 
 
