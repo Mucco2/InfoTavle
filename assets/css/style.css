@@ -828,6 +828,19 @@ body {
   text-decoration: underline;
 }
 
+/* Dagens Menu */
+.menu‐card ul li {
+  display: flex;
+  flex-direction: row;
+}
+
+.menu‐card .menu‐day {
+  min-width: 80px;
+  font-weight: bold;
+  color: #336e91;
+  margin-right: 0.5rem;
+}
+
 /* Små skærme: Kortene stables lodret */
 @media (max-width: 800px) {
   .info‐cards {
