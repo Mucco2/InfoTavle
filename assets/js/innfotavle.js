@@ -1,5 +1,5 @@
 // Erstat med IP-adressen på din Windows Server VM
-const serverIpAddress = '10.0.0.1.243'; 
+const serverIpAddress = '10.0.1.243'; 
 const apiUrl = `http://${serverIpAddress}:3000/api/data`;
 
 fetch(apiUrl)
