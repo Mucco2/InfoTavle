@@ -1,6 +1,9 @@
-// Funktion der henter data fra din API og viser det på siden
+// Funktion der henter data fra API'en på din VM og viser det på siden
 async function hentOgVisData() {
-    const api_url = 'http://localhost:3000/api/data';
+    
+    // ** VIGTIGT: Her bruger vi din VM's IP-adresse **
+    const api_url = 'http://10.0.1.243:3000/api/data';
+
     const container = document.getElementById('infotavle-container');
 
     // Tjek om container-elementet findes, før vi fortsætter
@@ -10,14 +13,23 @@ async function hentOgVisData() {
     }
 
     try {
+        // Vi logger den URL, vi prøver at kalde, for at gøre fejlsøgning nemmere
+        console.log(`Forsøger at hente data fra: ${api_url}`);
+
         // Kald din API med fetch()
         const response = await fetch(api_url);
+
+        // Tjek om serveren svarede med en fejl (f.eks. 404 Not Found eller 500 Internal Server Error)
+        if (!response.ok) {
+            throw new Error(`Serveren svarede med status: ${response.status}`);
+        }
+
         const data = await response.json();
 
         // Tøm containeren for gammelt indhold (f.eks. en "Indlæser..." besked)
         container.innerHTML = '';
 
-        // Gå igennem hver meddelelse ('row') i dataen og opret HTML for den
+        // Gå igennem hver meddelelse og opret HTML
         data.forEach(meddelelse => {
             const beskedDiv = document.createElement('div');
             beskedDiv.className = 'meddelelse'; // Giver en CSS-klasse du kan style
@@ -38,9 +50,9 @@ async function hentOgVisData() {
 
     } catch (error) {
         console.error('Fejl under hentning af data:', error);
-        container.innerHTML = '<p class="fejl">Kunne ikke indlæse data fra serveren. Tjek at API-serveren kører, og prøv igen.</p>';
+        container.innerHTML = '<p class="fejl">Kunne ikke indlæse data. Tjek at API-serveren kører på VM\'en, at din firewall er åben på port 3000, og at IP-adressen er korrekt.</p>';
     }
 }
 
-// Sørg for at køre funktionen, når hele HTML-siden er klar
+// Kør funktionen, når hele HTML-siden er klar
 window.addEventListener('DOMContentLoaded', hentOgVisData);
