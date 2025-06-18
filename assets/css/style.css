@@ -896,3 +896,44 @@ body {
         padding: 20px;
     }
 }
+
+body {
+    font-family: sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #005a9e;
+}
+
+#infotavle-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.meddelelse {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.meddelelse h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+.meddelelse .meta-info {
+    font-size: 0.9em;
+    color: #777;
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+}
