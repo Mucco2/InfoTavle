@@ -1,3 +1,4 @@
+console.log("main.js er indlæst korrekt!");
 // main.js
 
 // Menu Toggle
@@ -21,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "DSB Rejseplanen": "rejseplanen-section",
         "Kalender": "kalender-section",
         "Feedback": "feedback-section",
-        "Apikald": "Apikald-section" // Sørg for at dette ID matcher din HTML
+        "APIKald": "feedback-section1",
     };
 
     let activeSectionId = "infotavle-section";
@@ -100,3 +101,18 @@ function updateTopbarClock() {
 }
 setInterval(updateTopbarClock, 1000);
 updateTopbarClock();
+
+// Uddrag fra din main.js fil, inde i item.addEventListener("click", ... )
+
+const sectionId = sectionMap[title];
+if (sectionId) {
+    document.getElementById(sectionId).style.display = "block";
+    activeSectionId = sectionId;
+
+    // Dette er den afgørende trigger
+    if (title === "Apikald") {
+        if (typeof hentOgVisData === 'function') {
+            hentOgVisData();
+        }
+    }
+}

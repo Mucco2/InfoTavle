@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="da">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TEC Infotavle</title>
-    <!-- ======= Styles ====== -->
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<!-- ======= FAVICON ====== -->
+
 <body>
     <div class="container">
         <div class="navigation">
@@ -17,12 +16,11 @@
                 <li>
                     <a href="#">
                         <span class="icon">
-                        <img src="assets/imgs/download.png" alt="TEC Logo" />
+                            <img src="assets/imgs/download.png" alt="TEC Logo" />
                         </span>
                         <span class="title">Infotavle</span>
                     </a>
                 </li>
-
                 <li>
                     <a href="#">
                         <span class="icon">
@@ -31,7 +29,6 @@
                         <span class="title">Infotavle</span>
                     </a>
                 </li>
-
                 <li>
                     <a href="#">
                         <span class="icon">
@@ -40,7 +37,6 @@
                         <span class="title">Trafik</span>
                     </a>
                 </li>
-
                 <li>
                     <a href="#">
                         <span class="icon">
@@ -49,7 +45,6 @@
                         <span class="title">DSB Rejseplanen</span>
                     </a>
                 </li>
-
                 <li>
                     <a href="#">
                         <span class="icon">
@@ -58,7 +53,6 @@
                         <span class="title">Vejret</span>
                     </a>
                 </li>
-
                 <li>
                     <a href="#">
                         <span class="icon">
@@ -67,7 +61,6 @@
                         <span class="title">Kalender</span>
                     </a>
                 </li>
-
                 <li>
                     <a href="#">
                         <span class="icon">
@@ -76,30 +69,23 @@
                         <span class="title">Feedback</span>
                     </a>
                 </li>
-
                 <li>
                     <a href="#">
                         <span class="icon">
                             <ion-icon name="settings-outline"></ion-icon>
                         </span>
-                        <span class="title">Apikald</span>
+                        <span class="title">APIKald</span>
                     </a>
                 </li>
             </ul>
         </div>
 
-
-       
-
-
-        <!-- ========================= Main ==================== -->
         <div class="main">
-        <div id="clock-topbar" style="font-size:1.4rem; font-weight:bold; letter-spacing:1px; margin-left:1520px; color:#000000;"></div>
+            <div id="clock-topbar" style="font-size:1.4rem; font-weight:bold; letter-spacing:1px; margin-left:1520px; color:#000000;"></div>
             <div class="topbar">
                 <div class="toggle">
                     <ion-icon name="menu-outline"></ion-icon>
                 </div>
-
                 <div class="search">
                     <label>
                         <input type="text" placeholder="Search here">
@@ -111,200 +97,160 @@
             </div>
 
             <section class="infotavle-sections">
+                <div id="infotavle-section" class="info-section">
+                    <div class="infotavle‐hero">
+                        <h2>Velkommen til TEC Infotavle</h2>
+                        <p>Hold dig opdateret med dagens vigtigste beskeder, begivenheder og hurtige links.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-calendar-days"></i> Kommende Begivenheder</h3>
+                        <ul>
+                            <li><strong>18. juni:</strong> Gæsteforedrag om AI i kantinen kl. 10:00.</li>
+                            <li><strong>21. juni:</strong> Fredagsbar med tema: Sommerfest.</li>
+                            <li><strong>28. juni:</strong> Sidste afleveringsfrist for semesterprojektet.</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-triangle-exclamation"></i> Skemaændringer</h3>
+                        <ul>
+                            <li>
+                                <span>Dansk (DA201) kl. 09:45</span>
+                                <strong class="change-cancelled">Aflyst</strong>
+                            </li>
+                            <li>
+                                <span>Engelsk (EN304) kl. 11:30</span>
+                                <strong class="change-room">Lokaleændring til B2.14</strong>
+                            </li>
+                            <li>
+                                <span>Matematik (MA101) kl. 13:15</span>
+                                <strong class="change-ok">Ingen ændringer</strong>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-utensils"></i> Kantinens Menu</h3>
+                        <ul>
+                            <li><strong>Dagens varme ret:</strong> Lasagne med salat.</li>
+                            <li><strong>Vegetarisk:</strong> Fyldte peberfrugter med quinoa.</li>
+                            <li><strong>Sandwich:</strong> Kylling & Bacon / Hummus.</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-link"></i> Hurtige Links</h3>
+                        <ul class="quick-links">
+                            <li><a href="#">Lectio Skema</a></li>
+                            <li><a href="#">Studie+ Platform</a></li>
+                            <li><a href="#">IT-Support og vejledninger</a></li>
+                            <li><a href="#">Book et lokale</a></li>
+                        </ul>
+                    </div>
+                </div>
 
-<section class="infotavle-sections">
+                <div id="weather-section" class="info-section" style="display: none;">
+                    <div class="infovejer-header">
+                        <h2>Vejr</h2>
+                    </div>
+                    <div class="info-content">
+                        <div class="info-card weather-card">
+                            <div class="weather-header">
+                                <div class="weather-location">København</div>
+                                <div class="weather-date" id="today-date">Dato</div>
+                            </div>
+                            <div class="weather-body">
+                                <div class="weather-icon"><ion-icon name="cloud-outline"></ion-icon></div>
+                                <div class="weather-temp" id="today-temp">--°C</div>
+                                <div class="weather-condition" id="today-desc">--</div>
+                            </div>
+                            <div class="weather-footer">
+                                <div class="weather-detail" id="weather-humidity"><strong>Fugtighed:</strong> --%</div>
+                                <div class="weather-detail" id="weather-wind"><strong>Vind:</strong> -- m/s</div>
+                            </div>
+                        </div>
+                        <div class="week-forecast">
+                            <h3>Ugeoversigt</h3>
+                            <div class="forecast-cards" id="forecast-cards">
+                                </div>
+                        </div>
+                    </div>
+                </div>
 
+                <div id="traffic-section" class="info-section" style="display: none;">
+                    <div class="info-header">
+                        <h2>Live Trafikkort</h2>
+                    </div>
+                    <div class="info-content" style="justify-content: center;">
+                        <iframe
+                            src="https://trafikkort.vejdirektoratet.dk/index.html"
+                            width="1700"
+                            height="900"
+                            style="border: none; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                        </iframe>
+                    </div>
+                </div>
 
-  <div id="infotavle-section" class="info-section">
-    <!-- Hero‐banner -->
-    <div class="infotavle‐hero">
-      <h2>Velkommen til TEC Infotavle</h2>
-      <p>Hold dig opdateret med dagens vigtigste beskeder, begivenheder og hurtige links.</p>
-    </div>
+                <div id="kalender-section" class="info-section" style="display: none;">
+                    <div class="info-header">
+                        <h2>TEC Kalender</h2>
+                    </div>
+                    <div class="info-content" style="justify-content: center;">
+                        <iframe
+                           src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=Europe%2FCopenhagen&showPrint=0&src=dGVjZWxldjI1QGdtYWlsLmNvbQ&src=ZGEuZGFuaXNoI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&src=aGVsbGlnZGFnQGdtYWlsLmNvbQ&color=%23039be5&color=%230b8043&color=%23ad1457"
+                            style="border:solid 1px #777" width="1600" height="900" frameborder="0" scrolling="no"></iframe>
+                    </div>
+                </div>
 
-   
+                <div id="rejseplanen-section" class="info-section" style="display: none;">
+                    <div class="info-header">
+                        <h2>DSB Rejseplanen</h2>
+                    </div>
+                    <div class="info-content" style="justify-content: center;">
+                        <iframe
+                            src="https://rejseplanen.dk?language=da_DA#!S|København H!Z|TEC Hvidovre!start|1"
+                            width="1610"
+                            height="900"
+                            style="border: none; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                        </iframe>
+                    </div>
+                </div>
 
-        <div class="info-card">
-            <h3><i class="fa-solid fa-calendar-days"></i> Kommende Begivenheder</h3>
-            <ul>
-                <li><strong>18. juni:</strong> Gæsteforedrag om AI i kantinen kl. 10:00.</li>
-                <li><strong>21. juni:</strong> Fredagsbar med tema: Sommerfest.</li>
-                <li><strong>28. juni:</strong> Sidste afleveringsfrist for semesterprojektet.</li>
-            </ul>
-        </div>
+                <div id="feedback-section" class="info-section" style="display: none;">
+                    <div class="info-header">
+                        <h2>Feedback</h2>
+                    </div>
+                    <div class="info-content">
+                        <form id="feedback-form">
+                            <label for="name">Navn:</label>
+                            <input type="text" id="name" required placeholder="Dit navn">
+                            <label for="rating">Rating:</label>
+                            <select id="rating" required>
+                                <option value="">Vælg rating</option>
+                                <option value="1">1 - Meget dårlig</option>
+                                <option value="2">2 - Dårlig</option>
+                                <option value="3">3 - Okay</option>
+                                <option value="4">4 - God</option>
+                                <option value="5">5 - Fremragende</option>
+                            </select>
+                            <label for="comment">Kommentar:</label>
+                            <textarea id="comment" required placeholder="Din kommentar"></textarea>
+                            <p id="word-count">0/100 ord</p>
+                            <button type="submit">Send Feedback</button>
+                        </form>
+                        <div id="feedback-list">
+                            </div>
+                    </div>
+                </div>
 
-        <div class="info-card">
-            <h3><i class="fa-solid fa-triangle-exclamation"></i> Skemaændringer</h3>
-            <ul>
-                <li>
-                    <span>Dansk (DA201) kl. 09:45</span>
-                    <strong class="change-cancelled">Aflyst</strong>
-                </li>
-                <li>
-                    <span>Engelsk (EN304) kl. 11:30</span>
-                    <strong class="change-room">Lokaleændring til B2.14</strong>
-                </li>
-                 <li>
-                    <span>Matematik (MA101) kl. 13:15</span>
-                    <strong class="change-ok">Ingen ændringer</strong>
-                </li>
-            </ul>
-        </div>
+                <div id="feedback-section1" class="info-section">
+                    <main id="infotavle-container">
+                        <p>Indlæser meddelelser...</p>
+                    </main>
+                </div>
+                <script src="assets/js/infotavle.js"></script>
 
-        <div class="info-card">
-            <h3><i class="fa-solid fa-utensils"></i> Kantinens Menu</h3>
-            <ul>
-                <li><strong>Dagens varme ret:</strong> Lasagne med salat.</li>
-                <li><strong>Vegetarisk:</strong> Fyldte peberfrugter med quinoa.</li>
-                <li><strong>Sandwich:</strong> Kylling & Bacon / Hummus.</li>
-            </ul>
-        </div>
-
-        <div class="info-card">
-            <h3><i class="fa-solid fa-link"></i> Hurtige Links</h3>
-            <ul class="quick-links">
-                <li><a href="#">Lectio Skema</a></li>
-                <li><a href="#">Studie+ Platform</a></li>
-                <li><a href="#">IT-Support og vejledninger</a></li>
-                <li><a href="#">Book et lokale</a></li>
-            </ul>
-        </div>
-    </main>
-</div>
-        
-
-
-
-</section>
-
-
-
-   <!-- VEJR -->
-<div id="weather-section" class="info-section" style="display: none;">
-  <div class="infovejer-header">
-    <h2>Vejr</h2>
-  </div>
-  <div class="info-content">
-    <div class="info-card weather-card">
-      <div class="weather-header">
-        <div class="weather-location">København</div>
-        <div class="weather-date" id="today-date">Dato</div>
-      </div>
-      <div class="weather-body">
-        <div class="weather-icon"><ion-icon name="cloud-outline"></ion-icon></div>
-        <div class="weather-temp" id="today-temp">--°C</div>
-        <div class="weather-condition" id="today-desc">--</div>
-      </div>
-      <div class="weather-footer">
-        <div class="weather-detail" id="weather-humidity"><strong>Fugtighed:</strong> --%</div>
-        <div class="weather-detail" id="weather-wind"><strong>Vind:</strong> -- m/s</div>
-      </div>
-    </div>
-
-    <div class="week-forecast">
-      <h3>Ugeoversigt</h3>
-      <div class="forecast-cards" id="forecast-cards">
-        <!-- Dynamisk ugeprognose kommer her -->
-      </div>
-    </div>
-  </div>
-</div>
-
-   <!-- TRAFIK -->
-<div id="traffic-section" class="info-section" style="display: none;">
-  <div class="info-header">
-    <h2>Live Trafikkort</h2>
-  </div>
-  <div class="info-content" style="justify-content: center;">
-    <iframe
-      src="https://trafikkort.vejdirektoratet.dk/index.html"
-      width="1700"
-      height="900"
-      style="border: none; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-    </iframe>
-  </div>
-</div>
-
-
-
-
-    <!-- KALENDER -->
-<div id="kalender-section" class="info-section" style="display: none;">
-  <div class="info-header">
-    <h2>TEC Kalender</h2>
-  </div>
-  <div class="info-content" style="justify-content: center;">
-    <iframe
-     src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=Europe%2FCopenhagen&showPrint=0&src=dGVjZWxldjI1QGdtYWlsLmNvbQ&src=ZGEuZGFuaXNoI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&src=aGVsbGlnZGFnQGdtYWlsLmNvbQ&color=%23039be5&color=%230b8043&color=%23ad1457"
-      style="border:solid 1px #777" width="1600" height="900" frameborder="0" scrolling="no"></iframe>
-  </div>
-</div>
-
-<!-- DSB REJSEPLANEN -->
-<div id="rejseplanen-section" class="info-section" style="display: none;">
-  <div class="info-header">
-    <h2>DSB Rejseplanen</h2>
-  </div>
-  <div class="info-content" style="justify-content: center;">
-    <iframe
-      src="https://rejseplanen.dk?language=da_DA#!S|København H!Z|TEC Hvidovre!start|1"
-      width="1610"
-      height="900"
-      style="border: none; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-    </iframe>
-  </div>
-</div>
-
-<!-- Feedback-sektion -->
-<div id="feedback-section" class="info-section" style="display: none;">
-  <div class="info-header">
-    <h2>Feedback</h2>
-  </div>
-
-  <div class="info-content">
-    <form id="feedback-form">
-      <label for="name">Navn:</label>
-      <input type="text" id="name" required placeholder="Dit navn">
-
-      <label for="rating">Rating:</label>
-      <select id="rating" required>
-        <option value="">Vælg rating</option>
-        <option value="1">1 - Meget dårlig</option>
-        <option value="2">2 - Dårlig</option>
-        <option value="3">3 - Okay</option>
-        <option value="4">4 - God</option>
-        <option value="5">5 - Fremragende</option>
-      </select>
-
-      <label for="comment">Kommentar:</label>
-      <textarea id="comment" required placeholder="Din kommentar"></textarea>
-      <p id="word-count">0/100 ord</p>
-
-
-      <button type="submit">Send Feedback</button>
-    </form>
-
-    <div id="feedback-list">
-      <!-- Kommentarer vises her -->
-    </div>
-  </div>
-
-  <!-- APIKALD-->
-<div id="Apikald-section" class="info-section" style="display: none;">
-    <h1>Infotavle</h1>
-
-    <main id="infotavle-container">
-        <p>Indlæser meddelelser...</p>
-    </main>
-
-    <script src="/assets/js/infotavle.js"></script> </body>
-</html>
-
-</section>
+            </section>
         </div>
     </div>
-    <!-- =========== Scripts =========  -->
-     <script src="assets/js/script.js"></script>
+    <script src="assets/js/script.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/feed.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>

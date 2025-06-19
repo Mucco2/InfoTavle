@@ -1,3 +1,4 @@
+console.log("infotavle.js er indlæst korrekt!");
 // Funktion der henter data fra API'en på din VM og viser det på siden
 async function hentOgVisData() {
     
