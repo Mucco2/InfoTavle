@@ -897,43 +897,110 @@ body {
     }
 }
 
+/* ===== GRUNDLÆGGENDE DESIGN & FARVEPALETTE ===== */
+:root {
+    /* Definer farver som variabler for nemt at kunne ændre tema */
+    --primary-color: #005a9e; /* TEC Blå */
+    --background-color: #f8f9fa; /* En lysere, mere moderne grå */
+    --card-background-color: #ffffff;
+    --text-color: #212529; /* Mørkere for bedre kontrast */
+    --text-color-light: #6c757d; /* Til meta-tekst */
+    --border-color: #e9ecef;
+    --shadow-color: rgba(0, 0, 0, 0.08); /* Blødere skygge */
+    --font-family: 'Inter', sans-serif; /* Moderne skrifttype */
+}
+
 body {
-    font-family: sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-    margin: 20px;
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0; /* Fjern standard margin for fuld kontrol */
+    line-height: 1.6; /* Forbedrer læsbarhed */
 }
 
 h1 {
     text-align: center;
-    color: #005a9e;
+    color: var(--primary-color);
+    font-weight: 700;
+    margin-bottom: 2rem; /* Mere luft under overskriften */
 }
 
+
+/* ===== LAYOUT & RESPONSIVITET ===== */
 #infotavle-container {
-    max-width: 800px;
+    width: 100%;
+    max-width: 850px; /* Lidt bredere for bedre pladsudnyttelse */
     margin: 0 auto;
+    padding: 2rem 1rem; /* Padding tilføjes her, ikke på body. Giver luft på små skærme */
+    box-sizing: border-box; /* Sørger for at padding er inkluderet i bredden */
 }
 
+
+/* ===== DESIGN AF MEDDELELSES-KORT ===== */
 .meddelelse {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background-color: var(--card-background-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px; /* Lidt rundere kanter for et blødere look */
+    padding: 1.5rem 2rem; /* Mere intern luft (padding) */
+    margin-bottom: 1.5rem;
+    /* En mere moderne, lagdelt skygge */
+    box-shadow: 0 4px 6px -1px var(--shadow-color), 0 2px 4px -2px var(--shadow-color);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Smooth animation */
+}
+
+/* Interaktiv hover-effekt */
+.meddelelse:hover {
+    transform: translateY(-5px); /* Løfter kortet en smule */
+    box-shadow: 0 10px 15px -3px var(--shadow-color), 0 4px 6px -2px var(--shadow-color); /* Stærkere skygge ved hover */
 }
 
 .meddelelse h2 {
     margin-top: 0;
-    color: #333;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
 }
 
+.meddelelse p {
+    margin-bottom: 1.5rem; /* Afstand mellem brødtekst og meta-info */
+}
+
+
+/* ===== FORBEDRET META-INFO SEKTION ===== */
 .meddelelse .meta-info {
     font-size: 0.9em;
-    color: #777;
-    margin-top: 15px;
+    color: var(--text-color-light);
+    margin-top: 1rem;
     display: flex;
     justify-content: space-between;
-    border-top: 1px solid #eee;
-    padding-top: 10px;
+    align-items: center; /* Centrerer ikoner og tekst vertikalt */
+    flex-wrap: wrap; /* Gør at den kan gå over flere linjer på små skærme */
+    gap: 1rem; /* Afstand mellem elementer hvis de wrapper */
+    border-top: 1px solid var(--border-color);
+    padding-top: 1rem;
+}
+
+.meta-info .author,
+.meta-info .date {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* Afstand mellem ikon og tekst */
+}
+
+/* Font Awesome Ikoner */
+.meta-info i {
+    color: var(--primary-color);
+}
+
+/* Media Query for større skærme - ikke strengt nødvendigt med denne opsætning, 
+   men kan bruges til at justere f.eks. skriftstørrelser hvis man ønsker */
+@media (min-width: 768px) {
+    .meddelelse {
+        padding: 2rem 2.5rem; /* Lidt mere padding på større skærme */
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
 }
