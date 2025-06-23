@@ -1079,3 +1079,133 @@ h1 {
         .slide.active {
             opacity: 1;
         }
+
+        /* ======================================= */
+/* ==  NYT, FEDT DESIGN FOR DAGENS POLL == */
+/* ======================================= */
+
+/* Selve kortet - glas-effekt og placering */
+#poll-card {
+  position: fixed;
+  bottom: 25px;
+  right: 25px; /* Placerer den i højre hjørne */
+  width: 330px;
+  z-index: 1000;
+  
+  /* Glas-effekt (backdrop-filter virker i de fleste moderne browsere) */
+  background: rgba(255, 255, 255, 0.6); /* Semi-gennemsigtig hvid baggrund */
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px); /* For Safari-support */
+  
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  padding: 25px;
+  font-family: 'Inter', sans-serif;
+  color: #1a1a1a; /* Lidt mørkere tekst for bedre kontrast på glas-baggrund */
+}
+
+/* Overskrift med mere "punch" */
+#poll-card h3 {
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 700; /* Tykkere skrift */
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: var(--blue, #540dd8); /* Bruger din eksisterende blå farve */
+}
+
+#poll-question {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Dynamiske knapper med ikoner */
+.poll-option {
+  display: flex; /* Gør det muligt at justere ikon og tekst */
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none; /* Fjerner standard kant */
+  background: linear-gradient(145deg, #f0f0f0, #ffffff); /* Let 3D-effekt */
+  color: #333;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+/* Ikoner før knap-teksten (kræver at du tilføjer dem i HTML) */
+.poll-option::before {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  margin-right: 10px;
+  font-size: 1.1rem;
+}
+/* Specifikke ikoner */
+.poll-option[data-option="kaffe"]::before {
+  content: "\f0f4"; /* Font Awesome ikon for kaffekop */
+}
+.poll-option[data-option="frikvarter"]::before {
+  content: "\f118"; /* Font Awesome ikon for smiley */
+}
+
+.poll-option:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+  background: linear-gradient(145deg, #ffffff, #f0f0f0);
+}
+
+.poll-option:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+/* Resultat-sektionen */
+#poll-thank-you {
+  font-weight: 600;
+  text-align: center;
+  color: var(--blue, #540dd8);
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+
+.poll-result-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.poll-label {
+  flex-basis: 75px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.bar-container {
+  flex-grow: 1;
+  height: 12px; /* Lidt tyndere bjælke */
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  background: var(--blue, #540dd8);
+  border-radius: 6px;
+  transition: width 1s cubic-bezier(0.25, 1, 0.5, 1); /* Mere "smooth" animation */
+}
+
+.poll-percentage {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--blue, #540dd8);
+}
