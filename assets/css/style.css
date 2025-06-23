@@ -1054,7 +1054,7 @@ h1 {
                     .slideshow-container {
             position: relative;
             width: 50vw; /* 100% af browserens bredde */
-            height: 50vh; /* 100% af browserens højde */
+            height: 45vh; /* 100% af browserens højde */
         }
 
         /* Styling for hvert enkelt billede (slide) */
@@ -1087,13 +1087,13 @@ h1 {
 /* Selve kortet - glas-effekt og placering */
 #poll-card {
   position: fixed;
-  bottom: 200px;
+  bottom: 160px;
   right: 65px; /* Placerer den i højre hjørne */
   width: 500px;
   z-index: 1000;
   
   /* Glas-effekt (backdrop-filter virker i de fleste moderne browsere) */
-  background: rgba(255, 255, 255, 0.6); /* Semi-gennemsigtig hvid baggrund */
+  background: gray; /* Semi-gennemsigtig hvid baggrund */
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px); /* For Safari-support */
   background-color: gray;
