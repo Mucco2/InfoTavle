@@ -1016,8 +1016,8 @@ h1 {
         }
                     .slideshow-container {
             position: relative;
-            width: 50vw; /* 100% af browserens bredde */
-            height: 50vh; /* 100% af browserens højde */
+            width: 100vw; /* 100% af browserens bredde */
+            height: 100vh; /* 100% af browserens højde */
         }
 
         /* Styling for hvert enkelt billede (slide) */
@@ -1087,15 +1087,16 @@ h1 {
 /* Selve kortet - glas-effekt og placering */
 #poll-card {
   position: fixed;
-  bottom: 25px;
-  right: 25px; /* Placerer den i højre hjørne */
-  width: 330px;
+  bottom: 200px;
+  right: 65px; /* Placerer den i højre hjørne */
+  width: 500px;
   z-index: 1000;
   
   /* Glas-effekt (backdrop-filter virker i de fleste moderne browsere) */
   background: rgba(255, 255, 255, 0.6); /* Semi-gennemsigtig hvid baggrund */
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px); /* For Safari-support */
+  background-color: gray;
   
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 16px;
@@ -1119,7 +1120,7 @@ h1 {
   text-align: center;
   margin-bottom: 20px;
   font-size: 1rem;
-  color: #333;
+  color: black
 }
 
 /* Dynamiske knapper med ikoner */
@@ -1154,6 +1155,10 @@ h1 {
 }
 .poll-option[data-option="frikvarter"]::before {
   content: "\f118"; /* Font Awesome ikon for smiley */
+}
+
+.poll-option[data-option="morgenmad"]::before {
+  content: "\f0f5"; /* Font Awesome ikon for mad */
 }
 
 .poll-option:hover {

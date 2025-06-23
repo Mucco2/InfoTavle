@@ -120,6 +120,8 @@
                         <h3><i class="fa-solid fa-link"></i> Hurtige Links</h3>
                         <ul class="quick-links">
                             <li><a href="http://10.0.1.200/">TEC forløb Tidsregistrering</a></li>
+                            <li><a href="https://gnist.show/">GNIST Show TEC</a></li>
+
                         </ul>
                     </div>
                      
@@ -127,8 +129,8 @@
 <body>
 
     <div class="slideshow-container">
-        <img src="assets/imgs/danskm1.PNG" class="slide active" alt="Billede af et kontormiljø" width="50" height="20">
-        <img src="assets/imgs/danskm2.PNG" class="slide" alt="Billede af natur" width="50" height="20">
+        <img src="assets/imgs/danskm1.PNG" class="slide active" alt="1" width="100%">
+        <img src="assets/imgs/danskm2.PNG" class="slide" alt="2" width="100%">
         </div>
 
 <div class="info-card" id="poll-card">
@@ -138,6 +140,7 @@
         <div class="poll-options">
             <button class="poll-option" data-option="kaffe">Den første kop kaffe</button>
             <button class="poll-option" data-option="frikvarter">Frikvarteret</button>
+            <button class="poll-option" data-option="morgenmad">Morgenmad</button>
         </div>
 
         <div id="poll-results" style="display: none;">
@@ -165,6 +168,8 @@
 <div class="info-card" id="uservote-card" style="display: none;">
     <p class="user-vote-display">Du stemte på: <strong id="user-vote-display"></strong></p>
 </div>
+
+    <script src="assets/js/Vote.js"></script>
 
     <script>
         // Her starter logikken til at skifte billeder
@@ -296,7 +301,6 @@
             </section>
         </div>
     </div>
-    <script src="assets/js/Vote.js"></script>
     <script src="assets/js/script.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/feed.js"></script>
