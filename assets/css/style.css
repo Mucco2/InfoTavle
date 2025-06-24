@@ -1080,3 +1080,106 @@ h1 {
             opacity: 1;
         }
 
+        /* Generel styling for afstemningsboksen */
+.Poll.box {
+    position: fixed; /* Holder boksen på plads, selv når der scrolles */
+    bottom: 15px; /* Afstand fra bunden */
+    right: 130px; /* Afstand fra højre */
+    width: 400px;
+    max-width: 90%; /* Sørger for at den ikke er for bred på små skærme */
+    background-color: #ffffff;
+    border-radius: 15px; /* Giver de afrundede hjørner */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Giver en flot skygge-effekt */
+    overflow: hidden; /* Sørger for at indholdet respekterer de afrundede hjørner */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    transition: all 0.3s ease-in-out; /* Tilføjer en blød animation */
+    z-index: 1000; /* Sikrer at boksen ligger ovenpå andet indhold */
+}
+
+/* Styling for headeren af afstemningen */
+.poll-header {
+    background-color: #007bff; /* En flot blå farve */
+    color: white;
+    padding: 15px 20px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.poll-header h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    text-align: center;
+}
+
+/* Styling for indholdet af afstemningen */
+.poll-content {
+    padding: 20px;
+    color: #333;
+    font-size: 1rem;
+}
+
+.poll-content p {
+    font-size: 1rem;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+/* Styling for formular-elementerne */
+#poll-form label {
+    display: block;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+#poll-form label:hover {
+    color: #007bff; /* Fremhæver valgmulighed ved hover */
+}
+
+#poll-form input[type="radio"] {
+    margin-right: 10px;
+    accent-color: #007bff; /* Giver radio-knappen en moderne farve */
+}
+
+/* Styling for "Stem" knappen */
+#poll-form button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#poll-form button[type="submit"]:hover {
+    background-color: #0056b3; /* Mørkere blå ved hover */
+    transform: translateY(-2px); /* Giver et lille "løft" ved hover */
+}
+
+/* Område til resultater (hvis du vil vise dem senere) */
+#poll-results {
+    margin-top: 20px;
+}
+
+/* Responsivt design for mindre skærme (f.eks. mobiltelefoner) */
+@media (max-width: 480px) {
+    .Poll.box {
+        width: 100%;
+        max-width: 100%;
+        bottom: 0;
+        right: 0;
+        border-radius: 0; /* Fuld bredde og ingen afrundede hjørner på mobil */
+        box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .poll-header {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+}
+

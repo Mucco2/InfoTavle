@@ -124,15 +124,41 @@
                             <li><a href="https://gnist.show/">GNIST Show TEC</a></li>
 
                         </ul>
-                    </div>
-                     
-</head>
-<body>
+                    </div> 
+                </head>
+                  <body>
 
     <div class="slideshow-container">
         <img src="assets/imgs/danskm1.PNG" class="slide active" alt="1" width="100%" length="100%">
         <img src="assets/imgs/danskm2.PNG" class="slide" alt="2" width="100%" length="100%">
         </div>
+
+    <section class="infotavle-sections">
+        <div>
+            <div class="Poll box">
+                <div class="poll-header">
+                    <h2>Afstemning</h2>
+                </div>
+                <div class="poll-content">
+                    <p>Hvad glæder du dig mest til i dag?</p>
+                    <form id="poll-form">
+                        <label><input type="radio" name="poll-option" value="produktivt-arbejde"> Arbejde meget produktivt</label><br>
+                        <label><input type="radio" name="poll-option" value="kaffe"> Drikke en kop kaffe/Varm kakao</label><br>
+                        <label><input type="radio" name="poll-option" value="morgenmad"> Få noget morgenmad</label><br>
+                        <label><input type="radio" name="poll-option" value="slappe-af"> Slappe af i frikvarteret</label><br>
+                        <button type="submit">Stem</button>
+                    </form>
+                    <div id="poll-results"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+
+    <script src="assets/js/Vote.js"></script>
+
 
     <script>
         // Her starter logikken til at skifte billeder
@@ -156,9 +182,7 @@
         setInterval(nextSlide, slideInterval);
 
     </script>
-
                 </div>
-
                 <div id="weather-section" class="info-section" style="display: none;">
                     <div class="infovejer-header">
                         <h2>Vejr</h2>
