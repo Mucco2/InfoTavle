@@ -1015,77 +1015,46 @@ h1 {
             background-color: #000; /* Sort baggrund, hvis billeder ikke dækker helt */
         }
                     .slideshow-container {
-            position: relative;
-            width: 100vw; /* 100% af browserens bredde */
-            height: 100vh; /* 100% af browserens højde */
+            width: 100%; /* 100% af browserens bredde */
         }
 
-        /* Styling for hvert enkelt billede (slide) */
-        .slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            
-            /* Sørger for at billedet dækker hele fladen uden at blive forvrænget */
-            object-fit: cover; 
-            
-            /* Start med at gøre billedet usynligt */
-            opacity: 0; 
-            
-            /* Animation for en glidende overgang */
-            transition: opacity 1.5s ease-in-out; 
-        }
+    .slideshow-container {
+    position: relative;
+    width: 45vw;  /* Juster evt. bredden efter ønske (80% af browser-bredden) */
+    height: 45vh; /* Juster evt. højden efter ønske (80% af browser-højden) */
+    right: 4vw;
+    }
 
-        /* Klasse, der gør det aktive billede synligt */
-        .slide.active {
-            opacity: 1;
-        }
-        /* Grundlæggende styling for at fjerne margin og skjule scrollbars */
-        body, html {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            background-color: #000; /* Sort baggrund, hvis billeder ikke dækker helt */
-        }
-                    .slideshow-container {
-            position: relative;
-            width: 50vw; /* 100% af browserens bredde */
-            height: 45vh; /* 100% af browserens højde */
-        }
+/* Styling for hvert enkelt billede (slide) */
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    
+    /* * DEN VIGTIGE ÆNDRING ER HER:
+     * 'cover' er skiftet til 'contain'.
+     * 'contain' sikrer, at hele billedet altid er synligt inde i containeren.
+     */
+    object-fit: contain; 
+    
+    /* Start med at gøre billedet usynligt */
+    opacity: 0; 
+    
+    /* Animation for en glidende overgang */
+    transition: opacity 1.5s ease-in-out; 
+}
 
-        /* Styling for hvert enkelt billede (slide) */
-        .slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            
-            /* Sørger for at billedet dækker hele fladen uden at blive forvrænget */
-            object-fit: cover; 
-            
-            /* Start med at gøre billedet usynligt */
-            opacity: 0; 
-            
-            /* Animation for en glidende overgang */
-            transition: opacity 1.5s ease-in-out; 
-        }
-
-        /* Klasse, der gør det aktive billede synligt */
-        .slide.active {
-            opacity: 1;
-        }
+/* Klasse, der gør det aktive billede synligt */
+.slide.active {
+    opacity: 1;
+}
 
         /* Generel styling for afstemningsboksen */
 .Poll.box {
     position: fixed; /* Holder boksen på plads, selv når der scrolles */
-    bottom: 15px; /* Afstand fra bunden */
-    right: 130px; /* Afstand fra højre */
-    width: 400px;
+    bottom: 10px; /* Afstand fra bunden */
+    right: 270px; /* Afstand fra højre */
+    width: 450px;
     max-width: 90%; /* Sørger for at den ikke er for bred på små skærme */
     background-color: #ffffff;
     border-radius: 15px; /* Giver de afrundede hjørner */
