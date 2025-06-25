@@ -1,58 +1,73 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Kør kun, hvis vi kan finde containeren til nyhederne
     const newsContainer = document.getElementById('news-container');
     if (!newsContainer) {
-        return; // Afslut, hvis elementet ikke findes på siden
+        console.error("Fejl: Kunne ikke finde #news-container i HTML.");
+        return; 
     }
 
-    const rssUrl = 'https://jyllands-posten.dk/tools/rss/senestenyt/';
-    const proxyUrl = 'https://api.allorigins.win/get?url=';
+    // Vi bruger en simpel proxy, der kun videresender data.
+    const proxyUrl = 'https://corsproxy.io/?';
+    
+    // ===== NYT LINK: DR's RSS-feed =====
+    const newsSourceUrl = 'https://www.dr.dk/nyheder/service/feeds/allenyheder';
+    // ===================================
 
-    fetch(proxyUrl + encodeURIComponent(rssUrl))
+    console.log("Henter nyheder fra DR...");
+
+    fetch(proxyUrl + encodeURIComponent(newsSourceUrl))
         .then(response => {
-            if (response.ok) return response.json();
-            throw new Error('Netværksfejl.');
+            if (response.ok) {
+                return response.text();
+            }
+            throw new Error(`Netværksfejl. Proxyen svarede med status: ${response.status}`);
         })
-        .then(data => {
+        .then(xmlText => {
             const parser = new DOMParser();
-            const xml = parser.parseFromString(data.contents, "application/xml");
+            const xml = parser.parseFromString(xmlText, "application/xml");
             
+            const parseError = xml.querySelector("parsererror");
+            if (parseError) {
+                console.error("Fejl i XML-parsing:", parseError);
+                throw new Error("Kunne ikke læse det modtagne data som et gyldigt RSS-feed.");
+            }
+
             const items = xml.querySelectorAll("item");
-            newsContainer.innerHTML = ''; // Ryd "Indlæser..." beskeden
+            console.log(`Success! Fandt ${items.length} nyhedsartikler fra DR.`);
 
-            // Fallback billede, hvis en artikel mangler et
-            const fallbackImage = 'https://via.placeholder.com/400x200.png?text=JP+Nyhed';
+            if (items.length === 0) {
+                newsContainer.innerHTML = '<p>Feedet blev hentet, men indeholdt ingen artikler.</p>';
+                return;
+            }
 
-            let itemCount = 0;
-            items.forEach(item => {
-                if (itemCount >= 9) return; // Vis op til 9 nyheder
+            newsContainer.innerHTML = ''; // Ryd containeren
 
-                const title = item.querySelector("title").textContent;
-                const link = item.querySelector("link").textContent;
-                const description = item.querySelector("description").textContent;
+            // Nyt fallback-billede, der passer til DR
+            const fallbackImage = 'https://www.dr.dk/assets/img/logo/dr-logo-blaa.svg';
+
+            Array.from(items).slice(0, 8).forEach(item => {
+                const title = item.querySelector("title")?.textContent || "Ingen overskrift";
+                const link = item.querySelector("link")?.textContent || "#";
                 
-                // Prøv at finde billedet i feedet
+                // DR's feed har ikke et <description> tag for hver nyhed, så vi udelader det.
+                
                 const mediaContent = item.querySelector("media\\:content, content");
                 const imageUrl = mediaContent ? mediaContent.getAttribute("url") : fallbackImage;
 
-                // Opret et nyt kort med den flotte HTML struktur
                 const articleCard = document.createElement('div');
                 articleCard.className = 'news-article-card';
+                // HTML-skabelonen er opdateret: <p> med beskrivelse er fjernet.
                 articleCard.innerHTML = `
-                    <img src="${imageUrl}" alt="${title}" class="news-card-image">
+                    <img src="${imageUrl}" alt="" class="news-card-image" onerror="this.onerror=null;this.src='${fallbackImage}';">
                     <div class="news-card-content">
                         <h4 class="news-card-title">${title}</h4>
-                        <p class="news-card-description">${description}</p>
-                        <a href="${link}" target="_blank" class="news-card-link">Læs hele artiklen →</a>
+                        <a href="${link}" target="_blank" class="news-card-link">Læs på dr.dk →</a>
                     </div>
                 `;
-                
                 newsContainer.appendChild(articleCard);
-                itemCount++;
             });
         })
         .catch(error => {
-            console.error('Fejl ved hentning af RSS feed:', error);
-            newsContainer.innerHTML = '<p>Kunne ikke indlæse nyheder. Prøv venligst igen senere.</p>';
+            console.error('Kritisk fejl under hentning eller parsing:', error);
+            newsContainer.innerHTML = `<p style="color: red; font-weight: bold;">Fejl: Kunne ikke indlæse nyheder fra DR. (${error.message})</p>`;
         });
 });

@@ -1152,79 +1152,102 @@ body, html {
     }
 }
 
-/* ==================== NYHEDSSEKTION STYLING ==================== */
+/* ==================== MODERNE NYHEDSSEKTION STYLING V2 ==================== */
+
+/* Definerer DR's blå farve for nem genbrug */
+:root {
+    --dr-blue: #0055a4; 
+    --card-border-color: #e9ecef;
+    --card-background: #ffffff;
+    --text-dark: #212529;
+}
 
 /* Gitter-layout for nyhedskortene */
 .news-grid {
     display: grid;
-    /* Opretter kolonner, der er mindst 320px brede, men fylder automatisk pladsen */
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 25px; /* Mellemrum mellem kortene */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Justeret min. bredde */
+    gap: 2rem;
     width: 100%;
-    padding: 10px;
+    padding: 2rem;
 }
 
-/* Styling for hvert enkelt nyhedskort */
+/* Styling for hvert enkelt nyhedskort (som nu er et <a> tag) */
 .news-article-card {
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-    overflow: hidden; /* Sørger for at billedet respekterer de runde hjørner */
+    background-color: var(--card-background);
+    border-radius: 10px;
+    border: 20px solid var(--card-border-color);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    color: var(--text-dark);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-/* Giver en lille "løft" effekt, når musen er over kortet */
 .news-article-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+    border-color: var(--dr-blue);
 }
 
-/* Billedet i toppen af kortet */
-.news-card-image {
+/* Container for billedet for at styre zoom-effekt */
+.news-card-image-container {
     width: 100%;
     height: 180px;
-    object-fit: cover; /* Sørger for at billedet dækker hele området uden at blive forvrænget */
+    overflow: hidden;
+    background-color: #f8f9fa; /* Giver en pæn baggrund til fallback logo */
 }
 
-/* Container for tekstindholdet (overskrift, beskrivelse, link) */
+.news-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Dækker fladen pænt */
+    transition: transform 0.4s ease-in-out;
+}
+
+.news-article-card:hover .news-card-image {
+    transform: scale(1.07);
+}
+
+/* Særlig styling for fallback-logoet, så det ikke bliver strukket */
+.news-card-image[src*="dr-logo-blaa.svg"] {
+    object-fit: scale-down; /* Bevarer logoets størrelse */
+    padding: 2rem; /* Giver luft omkring logoet */
+}
+
+/* Container for tekstindholdet */
 .news-card-content {
-    padding: 20px;
+    padding: 2.5rem;
     display: flex;
     flex-direction: column;
-    flex-grow: 1; /* Får denne div til at fylde den resterende plads i kortet */
+    flex-grow: 1; /* Vigtig for at skubbe footer til bunden */
 }
 
-/* Overskriften på nyheden */
 .news-card-title {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: #333;
-    margin: 0 0 10px 0;
-}
-
-/* Beskrivelsen af nyheden */
-.news-card-description {
-    font-size: 0.9rem;
-    color: #666;
-    line-height: 1.5;
-    flex-grow: 1; /* Sørger for at beskrivelsen skubber linket ned i bunden */
-}
-
-/* "Læs mere" linket */
-.news-card-link {
-    display: inline-block;
-    margin-top: 15px; /* Lidt luft op til linket */
+    font-size: 1.15rem;
     font-weight: 600;
-    color: #007bff;
-    text-decoration: none;
-    transition: color 0.2s;
+    line-height: 1.4;
+    margin: 0;
+    flex-grow: 1; /* Skubber alt nedenunder nedad */
 }
 
-.news-card-link:hover {
-    color: #0056b3;
-    text-decoration: underline;
+/* Footer-sektionen i bunden af kortet */
+.news-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Placerer tekst og ikon i hver sin ende */
+    margin-top: 1.5rem;
+    font-weight: 600;
+    color: var(--dr-blue);
+    font-size: 0.9rem;
 }
 
+.news-card-footer ion-icon {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
 
+.news-article-card:hover .news-card-footer ion-icon {
+    transform: translateX(5px);
+}

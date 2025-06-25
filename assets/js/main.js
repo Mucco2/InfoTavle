@@ -1,17 +1,19 @@
 console.log("main.js er indlæst korrekt!");
-// main.js
-
-// Menu Toggle
-let toggle = document.querySelector(".toggle");
-let navigation = document.querySelector(".navigation");
-let main = document.querySelector(".main");
-
-toggle.onclick = function () {
-    navigation.classList.toggle("active");
-    main.classList.toggle("active");
-};
 
 document.addEventListener("DOMContentLoaded", function () {
+    // Menu Toggle
+    const toggle = document.querySelector(".toggle");
+    const navigation = document.querySelector(".navigation");
+    const main = document.querySelector(".main");
+
+    if (toggle) {
+        toggle.onclick = function () {
+            navigation.classList.toggle("active");
+            main.classList.toggle("active");
+        };
+    }
+
+    // Sektions-navigation
     const navItems = document.querySelectorAll(".navigation ul li");
     const sections = document.querySelectorAll(".info-section");
 
@@ -26,97 +28,48 @@ document.addEventListener("DOMContentLoaded", function () {
         "Nyheder": "nyheder-section",
     };
 
-    let activeSectionId = "infotavle-section";
+    let activeSectionId = "infotavle-section"; // Startside
 
     // Klik på menu-knapper
     navItems.forEach(item => {
-        item.addEventListener("click", () => {
-            const title = item.querySelector(".title").textContent.trim();
+        const titleElement = item.querySelector(".title");
+        if (!titleElement) return; // Spring over hvis der ikke er en titel (f.eks. logoet)
+        
+        const title = titleElement.textContent.trim();
 
+        item.addEventListener("click", () => {
+            // Opdater 'active' klassen på menupunkter
             navItems.forEach(nav => nav.classList.remove("active"));
             item.classList.add("active");
 
+            // Skjul alle sektioner
             sections.forEach(section => section.style.display = "none");
 
+            // Vis den valgte sektion
             const sectionId = sectionMap[title];
             if (sectionId) {
-                document.getElementById(sectionId).style.display = "block";
-                activeSectionId = sectionId;
-
-                // ============== NY KODE START ==============
-                // Hvis det er "Apikald"-sektionen, der lige er blevet vist,
-                // så kald funktionen, der henter data.
-                if (title === "Apikald") {
-                    if (typeof hentOgVisData === 'function') {
-                        hentOgVisData();
-                    } else {
-                        console.error("Funktionen 'hentOgVisData' blev ikke fundet. Sørg for at scriptet (f.eks. 'infotavle.js') er indlæst korrekt i din HTML.");
-                    }
+                const targetSection = document.getElementById(sectionId);
+                if(targetSection) {
+                    targetSection.style.display = "block";
+                    activeSectionId = sectionId;
                 }
-                // ============== NY KODE SLUT ==============
+            
+                // Hvis det er "Apikald"-sektionen, så kald funktionen til at hente data
+                if (title === "APIKald" && typeof hentOgVisData === 'function') {
+                    hentOgVisData();
+                }
             }
         });
     });
 
-    // Søgefunktion (din eksisterende kode - ingen ændringer her)
-    document.querySelector(".search input").addEventListener("input", function () {
-        const searchValue = this.value.toLowerCase();
-        let foundMatch = false;
-
-        if (searchValue === "") {
-            sections.forEach(section => {
-                section.style.display = (section.id === activeSectionId) ? "block" : "none";
-            });
-        } else {
-            sections.forEach(section => {
-                const text = section.textContent.toLowerCase();
-                const matches = text.includes(searchValue);
-                section.style.display = matches ? "block" : "none";
-
-                if (matches && !foundMatch) {
-                    foundMatch = true;
-                    activeSectionId = section.id;
-                    navItems.forEach(item => {
-                        const title = item.querySelector(".title").textContent.trim();
-                        const expectedSection = sectionMap[title];
-                        item.classList.toggle("active", expectedSection === section.id);
-                    });
-                }
-            });
-        }
-    });
-
-    // Initial markering
-    navItems.forEach(li => {
-        const title = li.querySelector(".title")?.textContent.trim();
-        if (sectionMap[title] === activeSectionId) {
-            li.classList.add("active");
-        }
-    });
-});
-
-function updateTopbarClock() {
-    const now = new Date();
-    document.getElementById('clock-topbar').textContent =
-        now.toLocaleTimeString('da-DK', { hour: '2-digit', minute: '2-digit' });
-}
-setInterval(updateTopbarClock, 1000);
-updateTopbarClock();
-
-// Uddrag fra din main.js fil, inde i item.addEventListener("click", ... )
-
-const sectionId = sectionMap[title];
-if (sectionId) {
-    document.getElementById(sectionId).style.display = "block";
-    activeSectionId = sectionId;
-
-    // Dette er den afgørende trigger
-    if (title === "Apikald") {
-        if (typeof hentOgVisData === 'function') {
-            hentOgVisData();
+    // Ur i toppen
+    function updateTopbarClock() {
+        const clockElement = document.getElementById('clock-topbar');
+        if(clockElement) {
+            const now = new Date();
+            clockElement.textContent = now.toLocaleTimeString('da-DK', { hour: '2-digit', minute: '2-digit' });
         }
     }
-}
-
-
-
+    setInterval(updateTopbarClock, 1000);
+    updateTopbarClock();
+});

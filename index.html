@@ -14,8 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
-<script>
-</script>
+
 <body>
     <div class="container">
         <div class="navigation">
@@ -78,22 +77,22 @@
                 </li>
                 <li>
                     <a href="#">
-    <span class="icon">
-        <ion-icon name="settings-outline"></ion-icon>
-    </span>
-    <span class="title">APIKald</span>
-</a>
-</li>
-<li>
-    <a href="#">
-        <span class="icon">
-            <ion-icon name="chatbox-ellipses-outline"></ion-icon>
-        </span>
-        <span class="title">Feedback</span>
-    </a>
-</li>
-</ul>
-</div>
+                        <span class="icon">
+                            <ion-icon name="settings-outline"></ion-icon>
+                        </span>
+                        <span class="title">APIKald</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="chatbox-ellipses-outline"></ion-icon>
+                        </span>
+                        <span class="title">Feedback</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
 
         <div class="main">
             <div id="clock-topbar" style="font-size:1.4rem; font-weight:bold; letter-spacing:1px; margin-left:1520px; color:#000000;"></div>
@@ -112,85 +111,49 @@
             </div>
 
             <section class="infotavle-sections">
+
                 <div id="infotavle-section" class="info-section">
                     <div class="infotavle‐hero">
                         <h2>Velkommen til TEC Infotavle</h2>
                         <p>Hold dig opdateret med dagens vigtigste beskeder, begivenheder og hurtige links.</p>
                     </div>
                     <div class="info-card">
-    <h3><i class="fa-solid fa-utensils"></i> Kantinen Informerer</h3>
-    
-    <p>
-        <i class="fa-solid fa-sun"></i> <strong>Start dagen godt!</strong><br>
-        Vi byder på gratis morgenmad for alle fra kl. 7:30 til 8:15.
-    </p>
-</div>
+                        <h3><i class="fa-solid fa-utensils"></i> Kantinen Informerer</h3>
+                        <p>
+                            <i class="fa-solid fa-sun"></i> <strong>Start dagen godt!</strong><br>
+                            Vi byder på gratis morgenmad for alle fra kl. 7:30 til 8:15.
+                        </p>
+                    </div>
                     <div class="info-card">
                         <h3><i class="fa-solid fa-link"></i> Hurtige Links</h3>
                         <ul class="quick-links">
                             <li><a href="http://10.0.1.200/">TEC forløb Tidsregistrering</a></li>
                             <li><a href="https://gnist.show/">GNIST Show TEC</a></li>
-
                         </ul>
-                    </div> 
-                </head>
-                  <body>
+                    </div>
 
-    <div class="slideshow-container">
-        <img src="assets/imgs/danskm1.PNG" class="slide active" alt="1" width="100%" length="100%">
-        <img src="assets/imgs/danskm2.PNG" class="slide" alt="2" width="100%" length="100%">
-        </div>
-
-    <section class="infotavle-sections">
-        <div>
-            <div class="Poll box">
-                <div class="poll-header">
-                    <h2>Afstemning</h2>
+                    <div class="slideshow-container">
+                        <img src="assets/imgs/danskm1.PNG" class="slide active" alt="1" width="100%" length="100%">
+                        <img src="assets/imgs/danskm2.PNG" class="slide" alt="2" width="100%" length="100%">
+                    </div>
+                    <div class="Poll box">
+                        <div class="poll-header">
+                            <h2>Afstemning</h2>
+                        </div>
+                        <div class="poll-content">
+                            <p>Hvad glæder du dig mest til i dag?</p>
+                            <form id="poll-form">
+                                <label><input type="radio" name="poll-option" value="produktivt-arbejde"> Arbejde meget produktivt</label><br>
+                                <label><input type="radio" name="poll-option" value="kaffe"> Drikke en kop kaffe/Varm kakao</label><br>
+                                <label><input type="radio" name="poll-option" value="morgenmad"> Få noget morgenmad</label><br>
+                                <label><input type="radio" name="poll-option" value="slappe-af"> Slappe af i frikvarteret</label><br>
+                                <button type="submit">Stem</button>
+                            </form>
+                            <div id="poll-results"></div>
+                        </div>
+                    </div>
                 </div>
-                <div class="poll-content">
-                    <p>Hvad glæder du dig mest til i dag?</p>
-                    <form id="poll-form">
-                        <label><input type="radio" name="poll-option" value="produktivt-arbejde"> Arbejde meget produktivt</label><br>
-                        <label><input type="radio" name="poll-option" value="kaffe"> Drikke en kop kaffe/Varm kakao</label><br>
-                        <label><input type="radio" name="poll-option" value="morgenmad"> Få noget morgenmad</label><br>
-                        <label><input type="radio" name="poll-option" value="slappe-af"> Slappe af i frikvarteret</label><br>
-                        <button type="submit">Stem</button>
-                    </form>
-                    <div id="poll-results"></div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
-
-    <script src="assets/js/Vote.js"></script>
-
-
-    <script>
-        // Her starter logikken til at skifte billeder
-
-        let currentSlideIndex = 0;
-        const slides = document.querySelectorAll('.slide');
-        const slideInterval = 7000; // Tid i millisekunder (7000ms = 7 sekunder)
-
-        function nextSlide() {
-            // Skjul det nuværende billede
-            slides[currentSlideIndex].classList.remove('active');
-
-            // Find indekset for det næste billede (går til 0 hvis det er det sidste)
-            currentSlideIndex = (currentSlideIndex + 1) % slides.length;
-
-            // Vis det næste billede
-            slides[currentSlideIndex].classList.add('active');
-        }
-
-        // Start slideshowet ved at kalde nextSlide() med det faste interval
-        setInterval(nextSlide, slideInterval);
-
-    </script>
-                </div>
                 <div id="weather-section" class="info-section" style="display: none;">
                     <div class="infovejer-header">
                         <h2>Vejr</h2>
@@ -213,8 +176,7 @@
                         </div>
                         <div class="week-forecast">
                             <h3>Ugeoversigt</h3>
-                            <div class="forecast-cards" id="forecast-cards">
-                                </div>
+                            <div class="forecast-cards" id="forecast-cards"></div>
                         </div>
                     </div>
                 </div>
@@ -224,12 +186,7 @@
                         <h2>Live Trafikkort</h2>
                     </div>
                     <div class="info-content" style="justify-content: center;">
-                        <iframe
-                            src="https://trafikkort.vejdirektoratet.dk/index.html"
-                            width="1700"
-                            height="900"
-                            style="border: none; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-                        </iframe>
+                        <iframe src="https://trafikkort.vejdirektoratet.dk/index.html" width="1700" height="900" style="border: none; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></iframe>
                     </div>
                 </div>
 
@@ -238,9 +195,7 @@
                         <h2>TEC Kalender</h2>
                     </div>
                     <div class="info-content" style="justify-content: center;">
-                        <iframe
-                           src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=Europe%2FCopenhagen&showPrint=0&src=dGVjZWxldjI1QGdtYWlsLmNvbQ&src=ZGEuZGFuaXNoI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&src=aGVsbGlnZGFnQGdtYWlsLmNvbQ&color=%23039be5&color=%230b8043&color=%23ad1457"
-                            style="border:solid 1px #777" width="1600" height="900" frameborder="0" scrolling="no"></iframe>
+                        <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=Europe%2FCopenhagen&showPrint=0&src=dGVjZWxldjI1QGdtYWlsLmNvbQ&src=ZGEuZGFuaXNoI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&src=aGVsbGlnZGFnQGdtYWlsLmNvbQ&color=%23039be5&color=%230b8043&color=%23ad1457" style="border:solid 1px #777" width="1600" height="900" frameborder="0" scrolling="no"></iframe>
                     </div>
                 </div>
 
@@ -249,12 +204,7 @@
                         <h2>DSB Rejseplanen</h2>
                     </div>
                     <div class="info-content" style="justify-content: center;">
-                        <iframe
-                            src="https://rejseplanen.dk?language=da_DA#!S|København H!Z|TEC Hvidovre!start|1"
-                            width="1610"
-                            height="900"
-                            style="border: none; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-                        </iframe>
+                        <iframe src="https://rejseplanen.dk?language=da_DA#!S|København H!Z|TEC Hvidovre!start|1" width="1610" height="900" style="border: none; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></iframe>
                     </div>
                 </div>
 
@@ -280,30 +230,47 @@
                             <p id="word-count">0/100 ord</p>
                             <button type="submit">Send Feedback</button>
                         </form>
-                        <div id="feedback-list">
-                            </div>
+                        <div id="feedback-list"></div>
                     </div>
                 </div>
 
                 <div id="feedback-section1" class="info-section" style="display: none;"> 
                     <main id="infotavle-container">
-                        <p>Indlæser meddelelser...</p>
                     </main>
                 </div>
-                <script src="assets/js/infotavle.js"></script>
-            </section>
+                
+                <div id="nyheder-section" class="info-section" style="display: none;">
+                    <div class="info-header">
+                        <h2>Kort Nyt fra DR</h2>
+                    </div>
+                    <div class="info-content">
+                        <div id="news-container" class="news-grid">
+                        </div>
+                    </div>
+                </div>
 
-          <div id="nyheder-section" class="info-section" style="display: none;">
-    <div class="info-header">
-        <h2>Dagens Nyheder</h2>
+            </section>
+            </div>
     </div>
-    <div class="info-content">
-        <div id="news-container" class="news-grid">
-            <p>Indlæser de seneste nyheder...</p>
-        </div>
-    </div>
-</div>
-    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+    <script src="assets/js/Vote.js"></script>
+    <script>
+        // Her starter logikken til at skifte billeder
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+        const slideInterval = 7000; // Tid i millisekunder (7000ms = 7 sekunder)
+
+        function nextSlide() {
+            if (slides.length === 0) return; // Stop hvis der ingen slides er
+            slides[currentSlideIndex].classList.remove('active');
+            currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+            slides[currentSlideIndex].classList.add('active');
+        }
+        setInterval(nextSlide, slideInterval);
+    </script>
+    <script src="assets/js/infotavle.js"></script>
     <script src="assets/js/feed1.js"></script>
     <script src="assets/js/script.js"></script>
     <script src="assets/js/main.js"></script>
