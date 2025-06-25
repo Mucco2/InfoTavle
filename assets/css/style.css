@@ -1051,19 +1051,20 @@ h1 {
 
         /* Generel styling for afstemningsboksen */
 .Poll.box {
-    position: fixed; /* Holder boksen på plads, selv når der scrolles */
-    bottom: 10px; /* Afstand fra bunden */
-    right: 270px; /* Afstand fra højre */
+    position: fixed;
+    bottom: 10px;
+    right: 10px;    /* Controls distance from right edge */
     width: 450px;
-    max-width: 90%; /* Sørger for at den ikke er for bred på små skærme */
+    max-width: 90vw;
     background-color: #ffffff;
-    border-radius: 15px; /* Giver de afrundede hjørner */
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Giver en flot skygge-effekt */
-    overflow: hidden; /* Sørger for at indholdet respekterer de afrundede hjørner */
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    transition: all 0.3s ease-in-out; /* Tilføjer en blød animation */
-    z-index: 1000; /* Sikrer at boksen ligger ovenpå andet indhold */
+    transition: all 0.3s ease-in-out;
+    z-index: 1000;
 }
+
 
 /* Styling for headeren af afstemningen */
 .poll-header {
@@ -1136,19 +1137,20 @@ h1 {
 }
 
 /* Responsivt design for mindre skærme (f.eks. mobiltelefoner) */
-@media (max-width: 480px) {
+@media (max-width: 700px) {
     .Poll.box {
-        width: 100%;
-        max-width: 100%;
+        width: 95vw;
+        max-width: 95vw;
         bottom: 0;
         right: 0;
-        border-radius: 0; /* Fuld bredde og ingen afrundede hjørner på mobil */
+        left: auto;
+        border-radius: 10px 10px 0 0;
         box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
     }
-
     .poll-header {
-        border-top-left-radius: 0;
-        border-top-right-radius: 0;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
     }
 }
+
 
