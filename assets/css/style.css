@@ -1005,42 +1005,41 @@ h1 {
     }
 }
 
-        /* Grundlæggende styling for at fjerne margin og skjule scrollbars */
-        body, html {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            background-color: #000; /* Sort baggrund, hvis billeder ikke dækker helt */
-        }
-                    .slideshow-container {
-            width: 100%; /* 100% af browserens bredde */
-        }
+       /* Grundlæggende styling for at fjerne margin og skjule scrollbars */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #000; /* Sort baggrund bag billedet */
+}
 
-    .slideshow-container {
-    position: relative;
-    width: 45vw;  /* Juster evt. bredden efter ønske (80% af browser-bredden) */
-    height: 45vh; /* Juster evt. højden efter ønske (80% af browser-højden) */
-    right: 4vw;
-    }
+/* Containeren der skal fylde hele skærmen */
+.slideshow-container {
+    position: relative; /* eller 'absolute' afhængig af struktur */
+    width: 45vw;  /* ÆNDRING: 100% af skærmens bredde */
+    height: 45vh; /* ÆNDRING: 100% af skærmens højde */
+    top: 0;
+    left: 0;
+}
 
 /* Styling for hvert enkelt billede (slide) */
+/* ... (body, html og .slideshow-container er de samme som ovenfor) ... */
+
 .slide {
     position: absolute;
     width: 100%;
     height: 100%;
     
-    /* * DEN VIGTIGE ÆNDRING ER HER:
-     * 'cover' er skiftet til 'contain'.
-     * 'contain' sikrer, at hele billedet altid er synligt inde i containeren.
+    /* * DENNE LINJE ER ÆNDRET:
+     * Sikrer, at billedet dækker hele fladen.
+     * Billedet beskæres for at bevare sit format.
      */
-    object-fit: contain; 
-    
-    /* Start med at gøre billedet usynligt */
-    opacity: 0; 
+    object-fit: cover; 
     
     /* Animation for en glidende overgang */
+    opacity: 0; 
     transition: opacity 1.5s ease-in-out; 
 }
 
