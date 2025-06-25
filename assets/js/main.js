@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "Kalender": "kalender-section",
         "Feedback": "feedback-section",
         "APIKald": "feedback-section1",
+        "Nyheder": "nyheder-section",
     };
 
     let activeSectionId = "infotavle-section";
